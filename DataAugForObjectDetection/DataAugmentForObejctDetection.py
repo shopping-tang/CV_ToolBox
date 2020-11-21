@@ -79,7 +79,7 @@ class DataAugmentForObjectDetection():
         '''
         # random.seed(int(time.time())) 
         # return random_noise(img, mode='gaussian', seed=int(time.time()), clip=True)*255
-        return random_noise(img, mode='gaussian', clip=True)*255
+        return random_noise(img, mode='gaussian', clip=True)#*255
 
     
     # 调整亮度
@@ -159,10 +159,10 @@ class DataAugmentForObjectDetection():
                         chongdie = True
                         break
             
-            mask[y1: y2, x1: x2, :] = 0.
-        
+            #mask[y1: y2, x1: x2, :] = 0.
+            img[y1: y2, x1: x2, :] = 0.
         # mask = np.expand_dims(mask, axis=0)
-        img = img * mask
+        #img = img * mask
 
         return img
 
